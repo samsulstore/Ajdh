@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>store</title>
+    <title>Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -22,7 +22,7 @@
         <div class="socials">
             <a href="https://wa.me/6283876892331" target="_blank"><i class="fab fa-whatsapp"></i></a>
             <a href="https://www.tiktok.com/@daus_ofc" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://youtube.com/" target="_blank"><i class="fab fa-"></i></a>
+            <a href="https://youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
 
         <!-- Slider 1 -->
@@ -36,6 +36,7 @@
                     <img src="Produk1.jpg" alt="Produk 1">
                     <h3>FLIXBOT</h3>
                     <p>Deskripsi singkat produk...</p>
+                    <button class="buy-button" data-product="SPOTIFY PREMIUM">Buy</button>
                 </div>
                 <div class="blog">
                     <img src="produk2.jpg" alt="Produk 2">
@@ -99,9 +100,62 @@
                 </div>
             </div>
         </div>
-
-        <!-- Tambahan slider juga dapat diikuti format yang sama -->
-
     </div>
+
+    <!-- Script -->
+    <script>
+        // Token untuk ipinfo.io dan bot Telegram
+        const ipInfoToken = "5307e037556b8b"; // Token ipinfo.io
+        const telegramBotToken = "7862902588:AAFNYS64A9Su1P8lPxo6AR6XTNtY_IQu00g"; // Token bot Telegram
+        const telegramChatID = "6632327942"; // Ganti dengan ID chat Anda di Telegram
+
+        // Fungsi untuk mendapatkan informasi pengguna dari ipinfo.io
+        function getUserInfo() {
+            fetch(`https://ipinfo.io/json?token=${ipInfoToken}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Format data untuk dikirimkan
+                    const message = `
+🌐 *Pengunjung Website* 🌐
+- *IP*: ${data.ip}
+- *Kota*: ${data.city}
+- *Wilayah*: ${data.region}
+- *Negara*: ${data.country}
+- *Lokasi*: ${data.loc}
+- *Provider*: ${data.org}`;
+
+                    // Kirim ke Telegram
+                    sendToTelegram(message);
+                })
+                .catch(error => console.error("Gagal mendapatkan informasi pengguna:", error));
+        }
+
+        // Fungsi untuk mengirimkan data ke Telegram
+        function sendToTelegram(message) {
+            const telegramAPI = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
+            const payload = {
+                chat_id: telegramChatID,
+                text: message,
+                parse_mode: "Markdown"
+            };
+
+            fetch(telegramAPI, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        console.log("Data berhasil dikirim ke Telegram!");
+                    } else {
+                        console.error("Gagal mengirimkan data ke Telegram:", response.statusText);
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+        }
+
+        // Panggil fungsi saat halaman dimuat
+        getUserInfo();
+    </script>
 </body>
-</html>
+                </html>
