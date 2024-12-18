@@ -1,0 +1,205 @@
+/* Style dasar */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 50px;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 50px -20px;
+}
+.cart-container {
+    position: relative;
+    background-color: #222;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between; /* Elemen terdistribusi */
+    align-items: center;
+    padding: 0 -20px; /* Beri padding kiri dan kanan */
+}
+.search-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    margin-right: 80px;
+    margin-left: 50px; /* Tambahkan ini untuk menggeser ke kanan */
+    align-items: center;
+}
+
+
+.search-bar {
+    width: 180px;
+    padding: 5px 10px;
+    padding-left: 30px; /* Memberi ruang di kiri untuk ikon */
+    border-radius: 25px; /* Sudut lebih melengkung */
+    border: 1px solid #fff;
+    background-color: #333;
+    color: #fff;
+    outline: none;
+}
+
+.search-bar::placeholder {
+    color: #bbb;
+}
+
+.search-container i {
+    position: absolute;
+    left: 10px; /* Tempatkan ikon di kiri input */
+    top: 50%;
+    transform: translateY(-50%); /* Menyelaraskan vertikal dengan input */
+    font-size: 18px;
+    color: #bbb;
+}
+
+
+.cart {
+    position: absolute; /* Posisi absolut untuk kontrol penuh */
+    top: 50%; /* Vertikal di tengah */
+    transform: translateY(-50%); /* Pastikan posisi tepat sejajar */
+    left: 310px; /* Geser ikon lebih ke kiri */
+    cursor: grab;
+    z-index: 1000;
+}
+
+.cart i {
+    font-size: 25px; /* Ukuran ikon keranjang */
+    color: #fff;
+    transition: transform 0.2s;
+    position: relative; /* Dibutuhkan untuk angka agar mengikuti ikon */
+}
+
+.cart i:hover {
+    transform: scale(1.2); /* Efek hover */
+}
+
+.cart:active {
+    cursor: grabbing;
+}
+
+/* Desain angka di atas ikon */
+.cart-count {
+    position: absolute; /* Relatif ke ikon keranjang */
+    top: -8px; /* Sedikit di atas ikon */
+    right: -8px; /* Menempel di sudut kanan atas ikon */
+    background-color: #ff0000; /* Lingkaran merah */
+    font-size: 12px; /* Ukuran angka */
+    width: 18px; /* Diameter lingkaran */
+    height: 18px; /* Diameter lingkaran */
+    border-radius: 50%; /* Membuat lingkaran */
+    display: flex;
+    justify-content: center; /* Angka di tengah lingkaran */
+    align-items: center;
+    font-weight: bold; /* Angka lebih tegas */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Bayangan untuk estetika */
+}
+
+
+.profile {
+    padding: 20px;
+    background-color: transparent;
+}
+
+.profile-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.socials a {
+    text-decoration: none;
+    margin: 10px;
+    font-size: 30px;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.socials a:hover {
+    color: #25d366;
+}
+
+.blog-slider {
+    margin-top: 20px;
+    background-color: transparent;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.blog-header h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #fff;
+}
+
+.blogs {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+}
+
+.blog {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 20px;
+    width: 40%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.blog img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.blog h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.blog p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+button.buy-button {
+    background-color: #25d366;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: default;
+}
